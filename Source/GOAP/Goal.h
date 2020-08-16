@@ -3,15 +3,24 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
+#include "GameFramework/Actor.h"
 #include "Goal.generated.h"
 
-/**
- * 
- */
 UCLASS()
-class GOAP_API UGoal : public UObject
+class GOAP_API AGoal : public AActor
 {
 	GENERATED_BODY()
 	
+public:	
+	// Sets default values for this actor's properties
+	AGoal();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 };
