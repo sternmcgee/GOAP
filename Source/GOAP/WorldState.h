@@ -7,11 +7,15 @@
 #include "WorldState.generated.h"
 
 /**
- * 
+ * Fixed size array of world state variables
  */
 UCLASS()
 class GOAP_API UWorldState : public UObject
 {
 	GENERATED_BODY()
-	
+
+private:
+
+public:
+	UWorldState();
 };

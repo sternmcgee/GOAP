@@ -13,5 +13,9 @@ UCLASS()
 class GOAP_API UPlan : public UObject
 {
 	GENERATED_BODY()
-	
+
+private:
+
+public:
+	UPlan();
 };

@@ -11,6 +11,27 @@ class GOAP_API AFSM : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+	enum States {GoTo, Animate, UseObject};
+	States curr_state = States::GoTo;
+
+	enum Events {ON_ENTER, ON_UPDATE};
+	Events curr_event = Events::ON_ENTER;
+
+	void UpdateFSM();
+	void SetState(States new_state);
+
+	void GoTo_Enter();
+	void GoTo_Update();
+	void GoTo_Exit();
+
+	void Animate_Enter();
+	void Animate_Update();
+	void Animate_Exit();
+
+	void UseObject_Enter();
+	void UseObject_Update();
+	void UseObject_Exit();
 public:	
 	// Sets default values for this actor's properties
 	AFSM();
@@ -22,5 +43,4 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 };

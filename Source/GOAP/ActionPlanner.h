@@ -11,6 +11,8 @@ class GOAP_API AActionPlanner : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+
 public:	
 	// Sets default values for this actor's properties
 	AActionPlanner();
