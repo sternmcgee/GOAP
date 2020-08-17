@@ -16,6 +16,7 @@ class GOAP_API UWorldState : public UObject
 
 private:
 
+
 public:
 	UWorldState();
 };

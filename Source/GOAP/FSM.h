@@ -12,14 +12,18 @@ class GOAP_API AFSM : public AActor
 	GENERATED_BODY()
 	
 private:
+	// Enum for FSM states
 	enum States {GoTo, Animate, UseObject};
+	UPROPERTY()
 	States curr_state = States::GoTo;
 
+	// Enum for FSM transitions
 	enum Events {ON_ENTER, ON_UPDATE};
+	UPROPERTY()
 	Events curr_event = Events::ON_ENTER;
 
+	// Updates FSM with Tick function
 	void UpdateFSM();
-	void SetState(States new_state);
 
 	void GoTo_Enter();
 	void GoTo_Update();
@@ -35,6 +39,9 @@ private:
 public:	
 	// Sets default values for this actor's properties
 	AFSM();
+	// Notifies FSM to switch to this next state
+	UFUNCTION()
+	void SetState(States new_state);
 
 protected:
 	// Called when the game starts or when spawned
