@@ -10,17 +10,18 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, BlueprintType)
 class GOAP_API UAction : public UObject
 {
 	GENERATED_BODY()
 	
-private:
+private:	
+
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere)
 	UWorldState* preconditions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere)
 	UWorldState* effects;
 
 	UFUNCTION(BlueprintNativeEvent)
@@ -30,5 +31,7 @@ protected:
 	void ActivateAction();
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 cost;
 
 };

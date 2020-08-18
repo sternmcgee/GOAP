@@ -6,6 +6,11 @@
 #include "GameFramework/Actor.h"
 #include "ActionPlanner.generated.h"
 
+/*
+	-Implements A* Search from goal node to start node.
+	-Recieves a goal from an AI agent and if possible,
+	returns a plan of actions to satisfy the goal's desired world state.
+*/
 UCLASS()
 class GOAP_API AActionPlanner : public AActor
 {

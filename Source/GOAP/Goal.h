@@ -10,13 +10,14 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, BlueprintType)
 class GOAP_API UGoal : public UObject
 {
 	GENERATED_BODY()
 
 private:
 	// What conditions need to be met to satisfy the goal?
+	UPROPERTY(VisibleAnywhere)
 	UWorldState* conditions;
 
 public:

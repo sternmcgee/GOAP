@@ -4,36 +4,37 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Containers/Union.h"
 #include "WorldState.generated.h"
 
-/**
- * Fixed size array of world state variables
- */
 
-UCLASS()
+/*	Enumerated World Property Key	*/
+enum EPropKey {
+
+};
+
+/*	World State Class  */
+UCLASS(Blueprintable, BlueprintType)
 class GOAP_API UWorldState : public UObject
 {
 	GENERATED_BODY()
 
 private:
-	struct WorldProperty
+	struct FWorldProperty
 	{
-		// GAME_OBJECT_ID hSubjectID;	// Reference to a subject
-		// WORLD_PROP_KEY eKey;			// Enum attribute key
+		uint32 subjectID;		// Reference to a subject
+		EPropKey eKey;			// Enum attribute key
 
 		union val
 		{
-			/*
 			bool bVal;
 			int32 nVal;
 			float fVal;
-			FName sVal;
-			*/
 		};
 	};
 
 	// list of WorldProperty structs
-
+	TArray<FWorldProperty> properties;
 
 public:
 	UWorldState();
