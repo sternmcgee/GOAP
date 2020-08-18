@@ -17,14 +17,16 @@ class GOAP_API UAction : public UObject
 	
 private:
 protected:
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UWorldState* preconditions;
-	UPROPERTY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UWorldState* effects;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintNativeEvent)
 	bool CheckProceduralPreconditions();
-	UFUNCTION()
+
+	UFUNCTION(BlueprintNativeEvent)
 	void ActivateAction();
 
 public:

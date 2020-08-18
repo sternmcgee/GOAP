@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "WorldState.h"
 #include "Goal.generated.h"
 
 /**
@@ -16,6 +17,8 @@ class GOAP_API UGoal : public UObject
 
 private:
 	// What conditions need to be met to satisfy the goal?
+	UWorldState* conditions;
+
 public:
 	UGoal();
 };

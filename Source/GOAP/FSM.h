@@ -14,12 +14,12 @@ class GOAP_API AFSM : public AActor
 private:
 	// Enum for FSM states
 	enum States {GoTo, Animate, UseObject};
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	States curr_state = States::GoTo;
 
 	// Enum for FSM transitions
 	enum Events {ON_ENTER, ON_UPDATE};
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	Events curr_event = Events::ON_ENTER;
 
 	// Updates FSM with Tick function
@@ -40,7 +40,7 @@ public:
 	// Sets default values for this actor's properties
 	AFSM();
 	// Notifies FSM to switch to this next state
-	UFUNCTION()
+	UFUNCTION(BlueprintNativeEvent)
 	void SetState(States new_state);
 
 protected:
