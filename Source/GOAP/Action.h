@@ -25,10 +25,10 @@ protected:
 	UWorldState* effects;
 
 	UFUNCTION(BlueprintNativeEvent)
-	bool CheckProceduralPreconditions();
+	virtual bool CheckProceduralPreconditions();
 
 	UFUNCTION(BlueprintNativeEvent)
-	void ActivateAction();
+	virtual void ActivateAction();
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
