@@ -6,20 +6,21 @@
 #include "GameFramework/Actor.h"
 #include "FSM.generated.h"
 
+// Enum for FSM states
+UENUM(BlueprintType)
+enum class States : uint8 { GoTo, Animate, UseObject };
+// Enum for FSM transitions
+UENUM(BlueprintType)
+enum class Events : uint8 { ON_ENTER, ON_UPDATE };
+
 UCLASS()
 class GOAP_API AFSM : public AActor
 {
 	GENERATED_BODY()
 	
 private:
-	// Enum for FSM states
-	enum States {GoTo, Animate, UseObject};
-	UPROPERTY(VisibleAnywhere)
-	States curr_state = States::GoTo;
-
-	// Enum for FSM transitions
-	enum Events {ON_ENTER, ON_UPDATE};
-	UPROPERTY(VisibleAnywhere)
+	
+	States curr_state = States::GoTo;	
 	Events curr_event = Events::ON_ENTER;
 
 	// Updates FSM with Tick function
@@ -40,7 +41,6 @@ public:
 	// Sets default values for this actor's properties
 	AFSM();
 	// Notifies FSM to switch to this next state
-	UFUNCTION(BlueprintNativeEvent)
 	void SetState(States new_state);
 
 protected:

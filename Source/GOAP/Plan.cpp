@@ -3,3 +3,4 @@
 
 #include "Plan.h"
 
+UPlan::UPlan() {}

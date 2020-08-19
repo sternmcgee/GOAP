@@ -9,8 +9,30 @@
 
 
 /*	Enumerated World Property Key	*/
-enum EPropKey {
+UENUM(BlueprintType)
+enum class EPropKey : uint8
+{
+	kNoTarget				UMETA(DisplayName = "kNoTarget"),
+	kTargetIsDead			UMETA(DisplayName = "kTargetIsDead"),
+	kWeaponIsLoaded			UMETA(DisplayName = "kWeaponIsLoaded"),
+	kWeaponIsArmed			UMETA(DisplayName = "kWeaponIsArmed")
+};
 
+/*	World Property Struct  */
+USTRUCT(BlueprintType)
+struct FWorldProperty
+{
+	GENERATED_BODY()
+public:
+	uint32 subjectID;		// Reference to a subject
+	EPropKey eKey;			// Enum attribute key
+
+	union val
+	{
+		bool bVal;
+		int32 nVal;
+		float fVal;
+	};
 };
 
 /*	World State Class  */
@@ -20,19 +42,6 @@ class GOAP_API UWorldState : public UObject
 	GENERATED_BODY()
 
 private:
-	struct FWorldProperty
-	{
-		uint32 subjectID;		// Reference to a subject
-		EPropKey eKey;			// Enum attribute key
-
-		union val
-		{
-			bool bVal;
-			int32 nVal;
-			float fVal;
-		};
-	};
-
 	// list of WorldProperty structs
 	TArray<FWorldProperty> properties;
 

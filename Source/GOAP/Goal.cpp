@@ -3,3 +3,4 @@
 
 #include "Goal.h"
 
+UGoal::UGoal() {}

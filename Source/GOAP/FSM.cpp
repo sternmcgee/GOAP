@@ -11,11 +11,53 @@ AFSM::AFSM()
 
 }
 
+void AFSM::GoTo_Enter() 
+{
+	curr_event = Events::ON_UPDATE;
+}
+void AFSM::GoTo_Update() 
+{
+	// Called once a frame
+	// Implement functionality...
+}
+void AFSM::GoTo_Exit() 
+{
+	// Implement functionality...
+}
+
+void AFSM::Animate_Enter() 
+{
+	curr_event = Events::ON_UPDATE;
+}
+void AFSM::Animate_Update() 
+{
+	// Called once a frame
+	// Implement functionality...
+}
+void AFSM::Animate_Exit() 
+{
+	// Implement functionality...
+}
+
+void AFSM::UseObject_Enter() 
+{
+	curr_event = Events::ON_UPDATE;
+}
+void AFSM::UseObject_Update() 
+{
+	// Called once a frame
+	// Implement functionality...
+}
+void AFSM::UseObject_Exit() 
+{
+	// Implement functionality...
+}
+
 // Called when the game starts or when spawned
 void AFSM::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -25,7 +67,7 @@ void AFSM::Tick(float DeltaTime)
 	UpdateFSM();
 }
 
-void AFSM::UpdateFSM() 
+void AFSM::UpdateFSM()
 {
 	switch (curr_state)
 	{
@@ -77,46 +119,4 @@ void AFSM::SetState(States new_state)
 	// Set new GameStates state and begin OnEnter of that state
 	curr_state = new_state;
 	curr_event = Events::ON_ENTER;
-}
-
-void AFSM::GoTo_Enter() 
-{
-	curr_event = Events::ON_UPDATE;
-}
-void AFSM::GoTo_Update() 
-{
-	// Called once a frame
-	// Implement functionality...
-}
-void AFSM::GoTo_Exit() 
-{
-	// Implement functionality...
-}
-
-void AFSM::Animate_Enter() 
-{
-	curr_event = Events::ON_UPDATE;
-}
-void AFSM::Animate_Update() 
-{
-	// Called once a frame
-	// Implement functionality...
-}
-void AFSM::Animate_Exit() 
-{
-	// Implement functionality...
-}
-
-void AFSM::UseObject_Enter() 
-{
-	curr_event = Events::ON_UPDATE;
-}
-void AFSM::UseObject_Update() 
-{
-	// Called once a frame
-	// Implement functionality...
-}
-void AFSM::UseObject_Exit() 
-{
-	// Implement functionality...
 }

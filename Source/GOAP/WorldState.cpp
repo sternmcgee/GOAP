@@ -3,3 +3,4 @@
 
 #include "WorldState.h"
 
+UWorldState::UWorldState() {}

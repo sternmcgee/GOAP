@@ -8,30 +8,30 @@
 #include "Action.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS(Blueprintable, BlueprintType)
 class GOAP_API UAction : public UObject
 {
 	GENERATED_BODY()
-	
-private:	
+
+private:
 
 protected:
 	UPROPERTY(VisibleAnywhere)
-	UWorldState* preconditions;
+		UWorldState* preconditions;
 
 	UPROPERTY(VisibleAnywhere)
-	UWorldState* effects;
+		UWorldState* effects;
 
-	UFUNCTION(BlueprintNativeEvent)
-	virtual bool CheckProceduralPreconditions();
+	// If required, check dyanmic preconditions (i.e. if escape path exists)
+	virtual bool CheckProceduralPreconditions() { return true; }
+	// Behavior of action, allows action execution to happen non-instantaneously
+	virtual void ActivateAction() {}
 
-	UFUNCTION(BlueprintNativeEvent)
-	virtual void ActivateAction();
+	UAction();
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 cost;
-
+		int32 cost;
 };

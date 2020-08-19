@@ -3,3 +3,4 @@
 
 #include "Action.h"
 
+UAction::UAction() {}
