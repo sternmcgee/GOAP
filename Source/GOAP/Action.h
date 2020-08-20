@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "JsonObjectConverter.h"
 #include "WorldState.h"
 #include "Action.generated.h"
 
@@ -34,4 +35,9 @@ protected:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 cost;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FString name;
+
+	static void ActionToJsonObject();
+	static void JsonObjectToAction();
 };
