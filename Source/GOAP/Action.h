@@ -19,24 +19,28 @@ class GOAP_API UAction : public UObject
 private:
 
 protected:
-	UPROPERTY(VisibleAnywhere)
-		UWorldState* preconditions;
-
-	UPROPERTY(VisibleAnywhere)
-		UWorldState* effects;
-
-	// If required, check dyanmic preconditions (i.e. if escape path exists)
-	virtual bool CheckProceduralPreconditions() { return true; }
-	// Behavior of action, allows action execution to happen non-instantaneously
-	virtual void ActivateAction() {}
-
 	UAction();
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int32 cost;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FString name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UWorldState* preconditions;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UWorldState* effects;
+
+	// If required, check dyanmic preconditions (i.e. if escape path exists)
+	UFUNCTION(BlueprintCallable)
+	virtual bool CheckProceduralPreconditions() PURE_VIRTUAL(UAction::CheckProceduralPreconditions, return true;);
+
+	// Behavior of action, allows action execution to happen non-instantaneously
+	UFUNCTION(BlueprintCallable)
+	virtual void ActivateAction() PURE_VIRTUAL(UAction::ActivateAction, return;);
 
 	static void ActionToJsonObject();
 	static void JsonObjectToAction();

@@ -16,7 +16,10 @@ class GOAP_API UPlan : public UObject
 	GENERATED_BODY()
 
 private:
-	TArray<UAction> actions;
+
 public:
 	UPlan();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<UAction> actions;
 };

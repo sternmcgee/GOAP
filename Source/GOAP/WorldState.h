@@ -24,8 +24,13 @@ struct FWorldProperty
 {
 	GENERATED_BODY()
 public:
-	uint32 subjectID;		// Reference to a subject
-	EPropKey eKey;			// Enum attribute key
+	// Reference to a subject
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	uint32 subjectID;		
+
+	// Enum attribute key
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EPropKey eKey;			
 
 	union val
 	{
@@ -41,10 +46,12 @@ class GOAP_API UWorldState : public UObject
 {
 	GENERATED_BODY()
 
-private:
-	// list of WorldProperty structs
-	TArray<FWorldProperty> properties;
+private:	
 
 public:
 	UWorldState();
+
+	// list of WorldProperty structs
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<FWorldProperty> properties;
 };

@@ -16,10 +16,11 @@ class GOAP_API UGoal : public UObject
 	GENERATED_BODY()
 
 private:
-	// What conditions need to be met to satisfy the goal?
-	UPROPERTY(VisibleAnywhere)
-	UWorldState* conditions;
 
 public:
 	UGoal();
+
+	// What conditions need to be met to satisfy the goal?
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UWorldState* conditions;
 };
