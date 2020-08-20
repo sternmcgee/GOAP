@@ -21,5 +21,5 @@ public:
 	UPlan();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<UAction> actions;
+		TArray<UAction*> actions;
 };

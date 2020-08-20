@@ -26,7 +26,7 @@ struct FWorldProperty
 public:
 	// Reference to a subject
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint32 subjectID;		
+	int32 subjectID;		
 
 	// Enum attribute key
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
