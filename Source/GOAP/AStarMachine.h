@@ -9,8 +9,10 @@
 #include <unordered_map>
 #include <vector>
 
+using namespace std;
+
 /* A* Node Struct */
-struct AStarNode {
+struct Node {
 	uint32 f;				// Total cost: f = g + h
 	uint32 g;				// Path cost from start node to this node
 	uint32 h;				// Heuristic of path cost from this to goal
@@ -22,20 +24,23 @@ struct AStarNode {
 };
 
 /* A* Graph Struct */
-struct SimpleGraph {
-	std::unordered_map<uint32, std::vector<uint32> > edges;
+struct Graph {
+	unordered_map<uint32, vector<uint32> > edges;
 
-	std::vector<uint32> neighbors(uint32 id) {
+	vector<uint32> neighbors(uint32 id) {
 		return edges[id];
 	}
+
+	// How do we create the graph?
+		// Graph(vector<Node> or vector<UAction>);
 };
 
 /* Priority Queue based on std::priority_queue */
 template<typename T, typename priority_t>
 struct PriorityQueue {
-	typedef std::pair<priority_t, T> PQElement;
-	std::priority_queue<PQElement, std::vector<PQElement>,
-		std::greater<PQElement>> elements;
+	typedef pair<priority_t, T> PQElement;
+	priority_queue<PQElement, vector<PQElement>,
+		greater<PQElement>> elements;
 
 	inline bool empty() const {
 		return elements.empty();
@@ -54,15 +59,15 @@ struct PriorityQueue {
 
 /* Reconstruct the path */
 template<typename Location>
-std::vector<Location> reconstruct_path(Location start, Location goal, std::unordered_map<Location, Location> came_from) {
-	std::vector<Location> path;
+vector<Location> reconstruct_path(Location start, Location goal, unordered_map<Location, Location> came_from) {
+	vector<Location> path;
 	Location current = goal;
 	while (current != start) {
 		path.push_back(current);
 		current = came_from[current];
 	}
 	path.push_back(start); // optional
-	std::reverse(path.begin(), path.end());
+	reverse(path.begin(), path.end());
 	return path;
 }
 
@@ -78,7 +83,7 @@ void a_star_search(Graph graph,	typename Graph::Location start,	typename Graph::
 	typedef typename Graph::Location Location;
 	typedef typename Graph::cost_t cost_t;
 	PriorityQueue<Location, cost_t> frontier;
-	std::vector<Location> neighbors;
+	vector<Location> neighbors;
 	frontier.put(start, cost_t(0));
 
 	came_from[start] = start;
