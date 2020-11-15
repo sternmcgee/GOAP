@@ -2,7 +2,7 @@
 	"source": "UE",
 	"applications": [
 		{
-			"app_key": "application.generated.ue.third-person-game-template-13942748.ue4editor.exe",
+			"app_key": "application.generated.ue.third-person-game-template-14469661.ue4editor.exe",
 			"launch_type": "url",
 			"url": "steam://launch/",
 			"action_manifest_path": "M:/Unreal Projects/GOAP/Config/SteamVRBindings/steamvr_manifest.json",
@@ -10,7 +10,7 @@
 			{
 				"en_us":
 				{
-					"name": "Third Person Game Template-13942748 [UE Editor]"
+					"name": "Third Person Game Template-14469661 [UE Editor]"
 				}
 			}
 		}
